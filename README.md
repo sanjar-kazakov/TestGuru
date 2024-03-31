@@ -1,24 +1,15 @@
-# README
+1. Пользователь:
+- Роль: юзер, администратор
+- Поля: Имя, Фамилия, Электронная почта, Пароль.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2. Тест:
+- Поля: Название, Описание, Вопросы
 
-Things you may want to cover:
+- Вопрос:
+- Поля: Текст вопроса, Варианты ответов, Правильный ответ
 
-* Ruby version
+- Ответ:
+- Поля: Текст ответа, Правильный или неправильный ответ
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Результат тестирования:
+- Поля: Пользователь, Пройденный тест, Дата прохождения, Результат
