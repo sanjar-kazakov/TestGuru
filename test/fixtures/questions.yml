@@ -1,11 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  question_text: MyText
-  answer_options: MyString
-  correct_answer: MyString
+  body: MyText
+  test: one
 
 two:
-  question_text: MyText
-  answer_options: MyString
-  correct_answer: MyString
+  body: MyText
+  test: two
