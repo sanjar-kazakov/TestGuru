@@ -1,0 +1,6 @@
+      invoke  active_record
+      create    db/migrate/20240405123442_create_answers.rb
+      create    app/models/answer.rb
+      invoke    test_unit
+      create      test/models/answer_test.rb
+      create      test/fixtures/answers.yml
