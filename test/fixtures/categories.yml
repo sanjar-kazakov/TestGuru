@@ -2,6 +2,8 @@
 
 one:
   title: MyString
+  test: one
 
 two:
   title: MyString
+  test: two
