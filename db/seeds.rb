@@ -24,7 +24,7 @@ tests = Test.create([
   {title: "Актеры сериалов", level: 1, category_id: categories[0].id, author_id: users[1].id},
   {title: "Герои мультфильмов", level: 0, category_id: categories[1].id, author_id: users[1].id},
   {title: "Фильмы фэнтези", level: 3, category_id: categories[2].id, author_id: users[2].id},
-  {title: "Советские мультфильмы", level: 1, category_id: categories[1].id, author_id: users[3].id}
+  {title: "Советские мультфильмы", level: 5, category_id: categories[1].id, author_id: users[3].id}
 ])
 
 questions = Question.create([
