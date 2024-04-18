@@ -9,17 +9,24 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: (2..4)) }
   scope :difficult, -> { where(level: (5..Float::INFINITY)) }
 
-  validates :title, presence: true
+  scope :sort_by_category_name, -> (category_name) {
+    joins(:category)
+    .where(categories: {title: category_name})
+  }
+
   validates :level, numericality: { only_integer: true,
                                     greater_than_or_equal_to: 0 }
   validates :title, presence: true, uniqueness: { scope: :level }
 
-  scope :sort_by_category_name, -> (category_name) {
-    joins(:category)
-    .where(categories: {title: category_name})
-    .order(title: :desc)
-  }
-
+  def self.sort_by(category_name)
+    sort_by_category_name(category_name).order(title: :desc).pluck(:title)
+  end
   # scope :history_by_level, -> (level) { where(level: level) }
+  # def self.sort_by(category_name)
+  #   joins(:category)
+  #   .where(categories: {title: category_name})
+  #   .order(title: :desc)
+  #   .pluck(:title)
+  # end
 
 end
