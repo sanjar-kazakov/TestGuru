@@ -5,8 +5,9 @@ class User < ApplicationRecord
 
   validates :name, :email, presence: true
 
-  scope :history_by_level, -> (level) {
+  def history_by_level(level)
     tests.where(level: level)
     .pluck(:title)
-  }
+  end
+
 end
