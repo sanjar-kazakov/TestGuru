@@ -21,12 +21,5 @@ class Test < ApplicationRecord
   def self.sort_by(category_name)
     sort_by_category_name(category_name).order(title: :desc).pluck(:title)
   end
-  # scope :history_by_level, -> (level) { where(level: level) }
-  # def self.sort_by(category_name)
-  #   joins(:category)
-  #   .where(categories: {title: category_name})
-  #   .order(title: :desc)
-  #   .pluck(:title)
-  # end
 
 end
