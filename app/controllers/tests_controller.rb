@@ -1,4 +1,7 @@
 class TestsController < ApplicationController
+
+  before_action :find_test, only: [:index, :show]
+
   def index
     tests = Test.all.pluck(:title)
     render plain: tests.join("\n")
@@ -8,8 +11,11 @@ class TestsController < ApplicationController
   end
 
   def show
-    render plain: Test.find(1).title
+    render plain: @test.title
+    # byebug
   end
 
-
+  def find_test
+    @test = Test.find(params[:id])
+  end
 end
