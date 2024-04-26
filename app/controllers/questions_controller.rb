@@ -1,36 +1,46 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test, only: [:index, :show, :create]
-  before_action :find_question, only: [:show, :destroy]
+  before_action :find_test, only: [:index, :show, :create, :new, :edit, :update, :destroy]
+  before_action :find_question, only: [:show, :destroy, :edit, :update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    question = @test.questions.pluck(:body)
-
-    render plain: question.join("\n")
+    @questions = @test.questions
   end
 
   def show
-    # byebug
-    render plain: @question.body
   end
 
   def new
-    # byebug
+    @question = @test.questions.new
   end
 
   def create
-    question = @test.questions.new(question_params)
-    if question.save
-      render plain: 'Done!'
+    @question = @test.questions.new(question_params)
+    if @question.save
+      redirect_to test_question_path(@test, @question)
     else
-      render plain: 'Failed!'
+      render :new
+      # redirect_to new_test_question_path(@test)
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @question = @test.questions.find(params[:id])
+    if @question.update(question_params)
+      redirect_to test_question_path(@test, @question)
+    else
+      render :edit
     end
   end
 
   def destroy
     @question.destroy
+    redirect_to @test.questions
   end
 
   private
@@ -40,7 +50,6 @@ class QuestionsController < ApplicationController
   end
 
   def find_test
-    # byebug
     @test = Test.find(params[:test_id])
   end
 
