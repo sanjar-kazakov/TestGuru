@@ -11,7 +11,8 @@
 <p>
   <strong> Test question(s): <%= @test.questions.count %></strong>
   <% @test.questions.each_with_index do |question, i| %>
-  <br><%= "#{i + 1}. #{question.body}" %>
+    <br>
+    <%= "#{i + 1}. #{question.body}" %>
   <% end %>
 </p>
 

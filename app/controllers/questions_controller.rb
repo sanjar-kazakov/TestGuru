@@ -5,10 +5,6 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    @questions = @test.questions
-  end
-
   def show
   end
 
@@ -22,7 +18,6 @@ class QuestionsController < ApplicationController
       redirect_to test_question_path(@test, @question)
     else
       render :new
-      # redirect_to new_test_question_path(@test)
     end
   end
 
