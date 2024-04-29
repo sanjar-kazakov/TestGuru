@@ -1,21 +1,35 @@
 class TestsController < ApplicationController
 
-  before_action :find_test, only: [:index, :show]
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    tests = Test.all.pluck(:title)
-    render plain: tests.join("\n")
+    @tests = Test.all
+  end
 
-    # render inline: '<h1>All test questions:</h1>
-    # <h3><%= Test.all.pluck(:title).join("<br>").html_safe%></h3>'
+  def new
+    @test = Test.new
+  end
+
+  def create
+    @test = Test.new(test_params)
+    if @test.save
+      render plain: 'Done!'
+    else
+      render plain: 'Failed!'
+    end
   end
 
   def show
-    render plain: @test.title
-    # byebug
+    @test = Test.find(params[:id])
   end
 
-  def find_test
-    @test = Test.find(params[:id])
+  private
+
+  def test_params
+    params.require(:test).permit(:title, :level, :category_id)
+  end
+
+  def rescue_with_question_not_found
+    render plain: 'Test not found!'
   end
 end

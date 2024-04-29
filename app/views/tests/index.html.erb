@@ -1,0 +1,17 @@
+<h1>Tests</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Level</th>
+    <th>Questions</th>
+  </tr>
+
+  <% @tests.each_with_index do |test, i|%>
+    <tr>
+      <td><%= "#{i + 1}. #{test.title}"%></td>
+      <td><%= test_level(test)%></td>
+      <td><%= test.questions.count %></td>
+    </tr>
+    <% end %>
+</table>
