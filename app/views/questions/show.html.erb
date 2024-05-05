@@ -13,5 +13,12 @@
   <br><%= @question.body %>
 </p>
 
+<p>
+  <strong> Answers: </strong>
+      <% @question.answers.each_with_index do |answer, i| %> <br>
+          <%= "#{i + 1}. #{answer.body}" %>
+      <% end %>
+</p>
+
 <%= link_to 'Edit', edit_test_question_path(@test) %> |
-<%= link_to 'Back', test_path(@test) %>
+<%= link_to 'Back', test_path(@question.test) %>

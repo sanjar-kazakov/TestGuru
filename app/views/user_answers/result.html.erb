@@ -1,0 +1,9 @@
+<h1> Test Completed</h1>
+
+<% if @user_answer.passage_percentage >= UserAnswer::SUCCESS_PERCENTAGE %>
+  <p style="color: green"> <%= "Success! Your score is #{@user_answer.passage_percentage}%!" %> </p>
+  <% else %>
+  <p style="color: red"> <%= "Fail! Your score is #{@user_answer.passage_percentage}%!" %> </p>
+<% end %>
+
+<%= link_to 'Back', tests_path %>
