@@ -21,11 +21,7 @@ class UserAnswer < ApplicationRecord
   end
 
   def passage_percentage
-    if completed?
       correct_questions / test.questions.count * 100
-    else
-      "Test is not completed"
-    end
   end
 
   def current_question_number
