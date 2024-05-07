@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+ <p>
+  <strong> Question: </strong>
+  <br><%= @question.body %>
+</p>
+
+<p>
+  <strong> Answer: </strong>
+<br>
+  <%= @answer.body %>
+</p>
+
+<%= link_to 'Edit', edit_test_question_answer_path %> |
+<%= link_to 'Back', test_question_path(@answer.question) %>
