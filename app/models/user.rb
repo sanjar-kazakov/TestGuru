@@ -10,4 +10,8 @@ class User < ApplicationRecord
     .pluck(:title)
   end
 
+  def user_answer(test)
+    user_answers.order(id: :desc).find_by(test_id: test.id)
+  end
+
 end
