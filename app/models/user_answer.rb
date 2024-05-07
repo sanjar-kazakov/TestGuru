@@ -21,13 +21,16 @@ class UserAnswer < ApplicationRecord
   end
 
   def passage_percentage
-      correct_questions / test.questions.count * 100
+      correct_questions / test.questions.count.to_f * 100
   end
 
   def current_question_number
     test.questions.order(:id).where('id < ?', current_question.id).count + 1
   end
 
+  def success?
+    passage_percentage >= SUCCESS_PERCENTAGE
+  end
 
   private
 
