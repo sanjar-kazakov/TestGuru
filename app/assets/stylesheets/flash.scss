@@ -1,0 +1,15 @@
+.flash {
+  display: inline-block;
+  border: 2px solid;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 80%;
+}
+
+.flash.alert {
+  border-color: #ef2727;
+}
+
+.flash.notice {
+  border-color: hsl(123, 100%, 39%);
+}

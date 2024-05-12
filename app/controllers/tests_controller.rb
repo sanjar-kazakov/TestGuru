@@ -14,7 +14,7 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(test_params)
+    @test = test.current_user.new(test_params)
     if @test.save
       redirect_to @test
     else
@@ -41,7 +41,7 @@ class TestsController < ApplicationController
   private
 
   def find_user
-    @user = User.last
+    @user = User.find(current_user.id)
     # byebug
   end
 
