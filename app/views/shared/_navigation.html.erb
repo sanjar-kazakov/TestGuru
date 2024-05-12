@@ -6,7 +6,7 @@
 <% end %>
 
 <% if logged_in? %>
-  <div class="nav log"><%= button_to 'Log out', logout_path, method: :delete, data: {turbo: false} %> </div>
+  <div class="nav log"><%= button_to 'Log out', logout_path, method: :delete %> </div>
 
   <p><%= flash_message(:notice) %></p> 
 
