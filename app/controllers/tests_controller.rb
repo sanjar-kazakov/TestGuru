@@ -1,7 +1,6 @@
 class TestsController < ApplicationController
 
   before_action :find_test, only: %i[show edit update destroy start]
-  before_action :find_user, only: :start
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -14,7 +13,8 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = test.current_user.new(test_params)
+    @test = current_user.author_tests.new(test_params)
+    binding.pry
     if @test.save
       redirect_to @test
     else
@@ -34,16 +34,11 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.user_answer(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.user_answer(@test)
   end
 
   private
-
-  def find_user
-    @user = User.find(current_user.id)
-    # byebug
-  end
 
   def find_test
     @test = Test.find(params[:id])

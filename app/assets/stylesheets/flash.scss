@@ -7,9 +7,13 @@
 }
 
 .flash.alert {
-  border-color: #ef2727;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
 }
 
 .flash.notice {
-  border-color: hsl(123, 100%, 39%);
+  background-color: #b1f4c1;
+  border-color: #b8f1c5;
+  color: #155724;
 }
