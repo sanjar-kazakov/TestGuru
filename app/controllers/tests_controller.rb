@@ -14,7 +14,6 @@ class TestsController < ApplicationController
 
   def create
     @test = current_user.author_tests.new(test_params)
-    binding.pry
     if @test.save
       redirect_to @test
     else
