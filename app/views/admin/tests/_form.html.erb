@@ -1,0 +1,12 @@
+<h1><%= @test.title %></h1>
+
+<%= form_with model: [:admin, @test] do |form| %>
+<%= render 'shared/errors', resource: @test %>
+<p>
+  <%= form.label :test_title %><br>
+  <%= form.text_field :title %>
+</p>
+
+<p> <%= form.submit %> </p>
+
+<% end %>
