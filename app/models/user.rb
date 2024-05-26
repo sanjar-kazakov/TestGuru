@@ -29,4 +29,10 @@ class User < ApplicationRecord
     user_answers.order(id: :desc).find_by(test_id: test.id)
   end
 
+  private
+
+  def admin_user
+    current_user.admin?
+  end
+
 end
