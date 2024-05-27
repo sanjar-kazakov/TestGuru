@@ -38,12 +38,6 @@ class Admin::TestsController < Admin::BaseController
     redirect_to admin_tests_path, notice: 'Test was successfully destroyed.'
   end
 
-
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.user_answer(@test)
-  end
-
   def update
     if @test.update(test_params)
       redirect_to admin_test_path(@test)
