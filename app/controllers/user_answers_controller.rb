@@ -1,6 +1,6 @@
 class UserAnswersController < ApplicationController
 
-  skip_before_action :authenticate_user!
+  before_action :authenticate_user!
 
   before_action :set_user_answer, only: %i[update show result ]
 
@@ -15,6 +15,7 @@ class UserAnswersController < ApplicationController
     @user_answer.accept!(params[:answer_ids])
 
     if @user_answer.completed?
+      TestsMailer.completed_test(@user_answer).deliver_now
       redirect_to result_user_answer_path(@user_answer)
     else
       render :show

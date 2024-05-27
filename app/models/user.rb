@@ -1,17 +1,24 @@
-require 'digest/sha1'
-
 class User < ApplicationRecord
+
+  devise :database_authenticatable,
+        :registerable,
+        :recoverable,
+        :rememberable,
+        :validatable,
+        :trackable,
+        :confirmable
 
   has_many :user_answers
   has_many :tests, through: :user_answers
   has_many :author_tests, foreign_key: "author_id", class_name: "Test"
 
-  before_validation {self.name = name.capitalize}
+  # VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  before_validation {self.first_name = first_name.capitalize}
+  before_validation {self.last_name = last_name.capitalize}
   before_validation { self.email = email.downcase }
 
-  validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-
-  has_secure_password
+  validates :email, presence: true, uniqueness: true #, format: { with: VALID_EMAIL }
 
   def history_by_level(level)
     tests.where(level: level)
@@ -20,6 +27,12 @@ class User < ApplicationRecord
 
   def user_answer(test)
     user_answers.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  private
+
+  def admin_user
+    current_user.admin?
   end
 
 end
