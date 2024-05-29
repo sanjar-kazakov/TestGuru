@@ -28,7 +28,10 @@ ru:
       header: 
         one: "Найдена одна ошибка"
         few: "Найдены %{count} ошибки"
+        many: "Найдено %{count} ошибок"
         other: "Найдена %{count} ошибка"
+    nav:
+      welcome: "Добро пожаловать, %{user}"
 
   tests:
     index:
@@ -92,7 +95,3 @@ ru:
     back: "Назад"
     edit: "Изменить"
     logout: "Выйти"
-
-  shared:
-    nav:
-      welcome: "Добро пожаловать, %{user}"

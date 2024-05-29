@@ -28,6 +28,8 @@ en:
       header: 
         one: "%{count} error detected"
         other: "%{count} errors detected"
+    nav:
+      welcome: "Welcome, %{user}"
 
   tests:
     index:
@@ -91,7 +93,3 @@ en:
     back: "Back"
     edit: "Edit"
     logout: "Sign out"
-  
-  shared:
-    nav:
-      welcome: "Welcome, %{user}"
