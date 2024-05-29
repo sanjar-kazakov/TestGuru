@@ -22,6 +22,8 @@ ru:
       answer:
         body: "Тело"
         correct: "Правильный"
+      question:
+        body: "Тело"
 
   shared:
     errors:
@@ -76,6 +78,25 @@ ru:
         test: "Тест"
         level: "Уровень"
         questions: "Вопросы к тесту"
+    questions:
+      show:
+        test: "Тест"
+        level: "Уровень"
+        question: "Вопрос"
+        answers: "Ответы"
+    answers:
+      show:
+        question: "Вопрос"
+        answer: "Ответ"
+      new:
+        header: "Создать новый вопрос"
+      edit:
+        header: "Изменить вопрос"
+
+  questions_helper:
+    question_header:
+      edit: "Изменить вопрос теста '%{header}'"
+      create: "Создать вопрос к тесту '%{header}'"
 
   user_answers:
     result:
@@ -83,7 +104,7 @@ ru:
       success: "Тест пройден успешно. Вы ответили на %{score}%!"
       fail: "Тест провален. Вы ответили на %{score}%!"
     show:
-      header: "Прохождение теста %{title}"
+      header: "Прохождение теста '%{title}'"
       question: "Вопрос"
 
   tests_mailer:

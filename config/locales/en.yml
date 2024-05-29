@@ -22,6 +22,8 @@ en:
       answer:
         body: "Body"
         correct: "Correct"
+      question:
+        body: "Body"
     
   shared:
     errors:
@@ -74,6 +76,25 @@ en:
         test: "Test"
         level: "Level"
         questions: "Test question(s)"
+    questions:
+      show:
+        test: "Test"
+        level: "Level"
+        question: "Question"
+        answers: "Answer"
+    answers:
+      show:
+        question: "Question"
+        answer: "Answer"
+      new:
+        header: "Create new answer"
+      edit:
+        header: "Edit answer"
+
+  questions_helper:
+    question_header:
+      edit: "Edit '%{header}' test question"
+      create: "Create '%{header}' test question"
 
   user_answers:
     result:
