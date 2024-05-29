@@ -1,33 +1,118 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 ru:
-  hello: "Привет мир!"
+  hello: "Привет, мир!"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+      question:
+        create: "Создать вопрос"
+        update: "Обновить вопрос"
+      answer:
+        create: "Создать ответ"
+        update: "Обновить ответ"
+    select:
+      prompt: "Выбрать"
+    label:
+      test:
+        test_title: "Название"
+        test_level: "Уровень"
+        category_id: "Категория"
+      answer:
+        body: "Тело"
+        correct: "Правильный"
+      question:
+        body: "Тело"
+
+  shared:
+    errors:
+      header: 
+        one: "Найдена одна ошибка"
+        few: "Найдены %{count} ошибки"
+        many: "Найдено %{count} ошибок"
+        other: "Найдена %{count} ошибка"
+    nav:
+      welcome: "Добро пожаловать, %{user}"
+
+  tests:
+    index:
+      header: "Доступные Тесты"
+      title: "Название"
+      level: "Уровень"
+      questions: "Вопросы"
+      actions: "Действия"
+    level:
+      easy: "Легкий"
+      medium: "Средний"
+      difficult: "Сложный"
+    test:
+      start: "Начать"
+
+  admin:
+    nav:
+      admin_nav_panel: "Административная панель TestGuru"
+      welcome: "Добро пожаловать"
+    tests:
+      create:
+        success: "Тест успешно создан."
+      index:
+        header: "Доступные Тесты"
+        new_test: "Создать тест"
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросы"
+        actions: "Действия"
+      new:
+        header: "Создать новый тест"
+      test:
+        show: "Показать"
+        edit: "Изменить"
+        destroy: "Удалить"
+      level:
+        easy: "Легкий"
+        medium: "Средний"
+        difficult: "Сложный"
+      show:
+        new_question: "Создать вопрос"
+        test: "Тест"
+        level: "Уровень"
+        questions: "Вопросы к тесту"
+    questions:
+      show:
+        test: "Тест"
+        level: "Уровень"
+        question: "Вопрос"
+        answers: "Ответы"
+    answers:
+      show:
+        question: "Вопрос"
+        answer: "Ответ"
+      new:
+        header: "Создать новый вопрос"
+      edit:
+        header: "Изменить вопрос"
+
+  questions_helper:
+    question_header:
+      edit: "Изменить вопрос теста '%{header}'"
+      create: "Создать вопрос к тесту '%{header}'"
+
+  user_answers:
+    result:
+      header: "Тест %{title} успешно завршен!"
+      success: "Тест пройден успешно. Вы ответили на %{score}%!"
+      fail: "Тест провален. Вы ответили на %{score}%!"
+    show:
+      header: "Прохождение теста '%{title}'"
+      question: "Вопрос"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест TestGuru!"
+
+  nav_buttons:
+    next: "Дальше"
+    back: "Назад"
+    edit: "Изменить"
+    logout: "Выйти"
