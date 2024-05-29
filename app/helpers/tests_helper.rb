@@ -1,10 +1,10 @@
 module TestsHelper
   def test_level(test)
     case test.level
-    when 0..1 then 'easy'
-    when 2..4 then 'medium'
+    when 0..1 then I18n.t('tests.level.easy')
+    when 2..4 then I18n.t('tests.level.medium')
     else
-      'difficult'
+      I18n.t('tests.level.difficult')
     end
   end
 end

@@ -1,6 +1,6 @@
-<h1> Passing the <%= @user_answer.test.title %> test </h1>
+<h1> <%= t('.header', title: @user_answer.test.title) %></h1>
 
-<p> Question:
+<p> <%= t('.question') %>:
   <%= @user_answer.current_question_number %> / <%= @user_answer.test.questions.count %>
 </p>
 
@@ -18,6 +18,6 @@
   <% end %>
 
   <p>
-    <%= form.submit 'Next' %>
+    <%= form.submit t('nav_buttons.next') %>
   </p>
 <% end %>
