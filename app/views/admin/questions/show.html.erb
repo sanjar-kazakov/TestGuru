@@ -1,24 +1,24 @@
 <p>
-  <strong> Test: </strong>
+  <strong> <%= t('.test') %>: </strong>
   <%= @test.title %>
 </p>
 
 <p>
-  <strong> Level: </strong>
+  <strong> <%= t('.level') %>: </strong>
   <%= @test.level %>
 </p>
 
 <p>
-  <strong> Question: </strong>
+  <strong> <%= t('.question') %>: </strong>
   <br><%= @question.body %>
 </p>
 
 <p>
-  <strong> Answers: </strong>
+  <strong> <%= t('.answers') %>: </strong>
       <% @question.answers.each_with_index do |answer, i| %> <br>
           <%= "#{i + 1}. #{answer.body}" %>
       <% end %>
 </p>
 
-<%= link_to 'Edit', edit_admin_test_question_path(@question.test) %> |
-<%= link_to 'Back', admin_test_path(@question.test) %>
+<%= link_to t('nav_buttons.edit'), edit_admin_test_question_path(@question.test) %> |
+<%= link_to t('nav_buttons.back'), admin_test_path(@question.test) %>

@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
  <p>
-  <strong> Question: </strong>
+  <strong> <%= t('.question') %>: </strong>
   <br><%= @question.body %>
 </p>
 
 <p>
-  <strong> Answer: </strong>
+  <strong> <%= t('.answer') %>: </strong>
 <br>
   <%= @answer.body %>
 </p>
 
-<%= link_to 'Edit', edit_admin_test_question_answer_path(@answer.question) %> |
-<%= link_to 'Back', admin_test_question_path(@question.test, @question) %>
+<%= link_to t('nav_buttons.edit'), edit_admin_test_question_answer_path(@answer.question) %> |
+<%= link_to t('nav_buttons.back'), admin_test_question_path(@question.test, @question) %>

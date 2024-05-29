@@ -1,11 +1,9 @@
 <% if user_signed_in? %>
-  <div class="nav log"><%= button_to 'Log out', destroy_user_session_path, method: :delete, data: { turbolinks: false } %></div>
+  <div class="nav log"><%= button_to t('nav_buttons.logout'), destroy_user_session_path, method: :delete, data: { turbolinks: false } %></div>
 
-  <p class="nav user">Welcome, 
-    <b>
-      <%= current_user.first_name %>
-    </b>
-    <%= link_to 'Guru', root_path %>
+  <p class="nav user">
+    <%= t('.welcome', user: current_user.first_name) %>
+      <%= link_to 'Guru', root_path %>
   </p> 
 
 <% end %>
