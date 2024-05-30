@@ -31,7 +31,7 @@ en:
         one: "%{count} error detected"
         other: "%{count} errors detected"
     nav:
-      welcome: "Welcome, %{user}"
+      welcome: "Welcome,"
 
   tests:
     index:

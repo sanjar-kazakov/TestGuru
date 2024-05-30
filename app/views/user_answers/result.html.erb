@@ -1,9 +1,9 @@
-<h1> <%= t('.header', title: @user_answer.test.title) %> </h1>
+<h2> <%= t('.header', title: @user_answer.test.title) %> </h2>
 
 <% if @user_answer.success? %>
-  <p style="color: green"> <%= t('.success', score: "#{@user_answer.passage_percentage}") %> </p>
+  <div class="alert alert-success" role="alert"><%= t('.success', score: "#{@user_answer.passage_percentage}") %> </div>
   <% else %>
-  <p style="color: red"> <%= t('.fail', score: "#{@user_answer.passage_percentage}") %> </p>
+  <div class="alert alert-danger" role="alert"> <%= t('.fail', score: "#{@user_answer.passage_percentage}") %> </div>
 <% end %>
 
-<%= link_to t('nav_buttons.back'), tests_path %>
+<%= link_to t('nav_buttons.back'), tests_path, class: 'btn btn-primary' %>

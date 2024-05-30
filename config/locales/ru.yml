@@ -33,7 +33,7 @@ ru:
         many: "Найдено %{count} ошибок"
         other: "Найдена %{count} ошибка"
     nav:
-      welcome: "Добро пожаловать, %{user}"
+      welcome: "Добро пожаловать,"
 
   tests:
     index:
