@@ -1,25 +1,34 @@
-<h1><%= t('.header') %></h1>
+<h2><%= t('.header') %></h2>
 
-<%= form_with model: [:admin, @test] do |form| %>
-<%= render 'shared/errors', resource: @test %>
-<p>
-  <%= form.label :test_title %><br>
-  <%= form.text_field :title %>
-</p>
+<div class="card card border-primary col-md-6">
+  <div class="card-body">
+    <%= form_with model: [:admin, @test] do |form| %>
+      <%= render 'shared/errors', resource: @test %>
+      <div class="form-group">
 
-<p>
-  <%= form.label :test_level %><br>
-  <%= form.number_field :level %>
-</p>
+        <p class="col-md-4">
+          <%= form.label :test_title %><br>
+          <%= form.text_field :title, class: 'form-control' %>
+        </p>
 
-<p>
-  <%= form.label :category_id %><br>
-  <%= form.collection_select :category_id, Category.all, :id, :title, 
-                            prompt: t('helpers.select.prompt') %>
-</p>
+        <p class="col-md-4">
+          <%= form.label :test_level %><br>
+          <%= form.number_field :level, class: 'form-control' %>
+        </p>
 
-<p> <%= form.submit %> </p>
+        <p class="form-group col-md-2">
+          <%= form.label :category_id %><br>
+          <%= form.collection_select :category_id, Category.all, :id, :title, 
+          { prompt: t('helpers.select.prompt') }, class: 'form-control' %>
+        </p>
 
-<% end %>
 
-<%= link_to t('nav_buttons.back'), admin_tests_path %>
+        <p> <%= form.submit class: "btn btn-outline-primary mt-3" %> </p>
+      </div>
+    <% end %>
+ </div>
+</div>
+
+<div class="mt-2">
+  <%= link_to t('nav_buttons.back'), admin_tests_path, class: "btn btn-primary" %>
+</div>

@@ -1,10 +1,17 @@
-<% if user_signed_in? %>
-  <div class="nav log"><%= button_to t('nav_buttons.logout'), destroy_user_session_path, method: :delete, data: { turbolinks: false } %></div>
+<nav class="navbar" style="background-color: #e3f2fd;">
+  <%= link_to "Test Guru", root_path, class: 'navbar-brand px-4' %>
+  
+  <span class="navbar-text px-4">
+    <% if user_signed_in? %>
+      <%= t('.welcome')%> <b><%= current_user.first_name %></b> Guru! |
 
-  <p class="nav user">
-    <%= t('.welcome', user: current_user.first_name) %>
-      <%= link_to 'Guru', root_path %>
-  </p> 
-
-<% end %>
-
+      <button type="button" class="btn btn-outline-secondary btn-sm">
+        <%= button_to t('nav_buttons.logout'), destroy_user_session_path, method: :delete, data: { turbolinks: false } %>
+      </button>
+      
+    <% else %>
+      <%= link_to "Sign in", new_session_path(resource_name) %> |
+      <%= link_to "Sign up", new_registration_path(resource_name) %>
+    <% end %>
+  </span>
+</nav>

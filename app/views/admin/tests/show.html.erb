@@ -8,19 +8,24 @@
   <%= test_level(@test) %>
 </p>
 
-<%= link_to t('.new_question'), new_admin_test_question_path(@test) %>
+<div class="mb-4">
+  <%= link_to t('.new_question'), new_admin_test_question_path(@test), class: "btn btn-outline-primary btn-sm" %>
+</div>
 
-<p>
-  <strong> 
-    <%= t('.questions') %>: 
-    <%= @test.questions.count %>
-  </strong>
-  
-  <% @test.questions.each_with_index do |question, i| %>
-    <br>
-    <%= "#{i + 1}. #{question.body}" %>
-  <% end %>
-</p>
+<div class="card">
+  <div class="card-header">
+    <strong><%= t('.questions') %>: <%= @test.questions.count %></strong>
+  </div>
+  <div class="card-body">
+    <% @test.questions.each_with_index do |question, i| %>
+      <div class="mb-4">
+        <h6 class="card-title"><%= "#{i + 1}. #{question.body}" %></h6>
+        <%= link_to t('nav_buttons.edit'), edit_admin_test_question_path(@test, question), class: "btn btn-outline-primary btn-sm" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<%= link_to t('nav_buttons.edit'), edit_admin_test_path(@test) %> |
-<%= link_to t('nav_buttons.back'), admin_tests_path %>
+<div class="mt-2">
+  <%= link_to t('nav_buttons.back'), admin_tests_path, class: "btn btn-primary " %>
+</div>
