@@ -2,6 +2,9 @@ require_relative "boot"
 
 require "rails/all"
 
+require 'dotenv'
+Dotenv.load
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -21,5 +24,7 @@ module TestGuru
 
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
     config.i18n.default_locale = :en
+
+    config.autoload_paths << "#{Rails.root}/lib/clients"
   end
 end
