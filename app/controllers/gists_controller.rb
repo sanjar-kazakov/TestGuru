@@ -7,7 +7,7 @@ class GistsController < ApplicationController
     result = service.call
 
     flash_options = if service.success?
-      current_user.gists.create!(
+      current_user.gists.create(
         question: @user_answer.current_question,
         gist_url: result[:html_url]
       )
