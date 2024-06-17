@@ -10,6 +10,11 @@ class GistQuestionService
     @client.create_gist(gist_params)
   end
 
+  def success?
+    byebug
+    @client.response_status
+  end
+
   private
 
   def gist_params

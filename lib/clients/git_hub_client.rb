@@ -10,4 +10,8 @@ class GitHubClient
     @http_client.create_gist(params)
   end
 
+  def response_status
+    @http_client.last_response.status == 201
+  end
+
 end

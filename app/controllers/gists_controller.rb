@@ -3,9 +3,10 @@ class GistsController < ApplicationController
   before_action :set_user_answer, only: %i[create]
 
   def create
-    result = GistQuestionService.new(@user_answer.current_question).call
+    service = GistQuestionService.new(@user_answer.current_question)
+    result = service.call
 
-    flash_options = if result[:id]
+    flash_options = if service.success?
       current_user.gists.create!(
         question: @user_answer.current_question,
         gist_url: result[:html_url]

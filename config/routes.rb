@@ -22,7 +22,7 @@ Rails.application.routes.draw do
         resources :answers
       end
     end
-    resources :gists, only: %i[index show]
+    resources :gists, only: %i[index]
   end
 
   resources :gists, only: %i[create]
