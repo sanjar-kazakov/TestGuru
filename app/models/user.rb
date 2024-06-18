@@ -9,6 +9,7 @@ class User < ApplicationRecord
         :confirmable
 
   has_many :user_answers
+  has_many :gists
   has_many :tests, through: :user_answers
   has_many :author_tests, foreign_key: "author_id", class_name: "Test"
 

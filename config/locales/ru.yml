@@ -59,6 +59,7 @@ ru:
       index:
         header: "Доступные Тесты"
         new_test: "Создать тест"
+        user_gists: "Гисты пользователей"
         title: "Название"
         level: "Уровень"
         questions: "Вопросы"
@@ -92,6 +93,12 @@ ru:
         header: "Создать новый вопрос"
       edit:
         header: "Изменить вопрос"
+    gists:
+      index:
+        header: "Гисты пользователей"
+        question: "Вопрос"
+        url: "Url"
+        user: "пользователь"
 
   questions_helper:
     question_header:
@@ -106,6 +113,11 @@ ru:
     show:
       header: "Прохождение теста '%{title}'"
       question: "Вопрос"
+      gist_btn: "Вопрос в Gist"
+
+  gists:
+    success: "%{gist_url} успешно сохранен!"
+    failure: "При сохранении произошла ошибка."
 
   tests_mailer:
     completed_test:
@@ -116,3 +128,8 @@ ru:
     back: "Назад"
     edit: "Изменить"
     logout: "Выйти"
+
+  services:
+    gist_question_service:
+      description: "Вопрос про %{test_title} из TestGuru."
+      file: "вопрос_тест_гуру"

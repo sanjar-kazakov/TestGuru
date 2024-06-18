@@ -28,6 +28,10 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# Networking
+gem 'faraday'
+gem "octokit"
+
 # Auth
 gem 'devise', '~> 4.0'
 
@@ -43,6 +47,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   gem 'pry'
+
+  gem 'dotenv'
 end
 
 group :development do

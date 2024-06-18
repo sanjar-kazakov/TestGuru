@@ -57,6 +57,7 @@ en:
       index:
         header: "Tricky Tests"
         new_test: "New test"
+        user_gists: "User gists"
         title: "Tittle"
         level: "Level"
         questions: "Questions"
@@ -90,6 +91,12 @@ en:
         header: "Create new answer"
       edit:
         header: "Edit answer"
+    gists:
+      index:
+        header: "User gists"
+        question: "Question"
+        url: "Url"
+        user: "User"
 
   questions_helper:
     question_header:
@@ -104,6 +111,11 @@ en:
     show:
       header: "Passing the  %{title} test"
       question: "Question"
+      gist_btn: "Gist Question"
+      
+  gists:
+    success: "%{gist_url} was successfully saved!"
+    failure: "An error occurred while saving the gist."
 
   tests_mailer:
     completed_test:
@@ -114,3 +126,8 @@ en:
     back: "Back"
     edit: "Edit"
     logout: "Sign out"
+
+  services:
+    gist_question_service:
+      description: "The question about %{test_title} from TestGuru."
+      file: "test_guru_question"
