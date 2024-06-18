@@ -1,9 +1,7 @@
 class UserAnswersController < ApplicationController
 
   before_action :authenticate_user!
-
-  before_action :set_user_answer, only: %i[update show result ]
-
+  before_action :set_user_answer, only: %i[update show result]
 
   def show
   end

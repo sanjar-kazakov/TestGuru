@@ -1,13 +1,12 @@
-<h1> <%= t('.header', title: @user_answer.test.title) %></h1>
+<h2> <%= t('.header', title: @user_answer.test.title) %></h2>
 
 <p> <%= t('.question') %>:
   <%= @user_answer.current_question_number %> / <%= @user_answer.test.questions.count %>
 </p>
 
-<b>
-  <%= @user_answer.current_question.body %>
-</b>
-
+<p>
+  <b><%= @user_answer.current_question.body %></b>
+</p>
 
 <%= form_with url: user_answer_path(@user_answer), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @user_answer.current_question.answers, :id, :body, include_hidden: false do |b| %>
@@ -17,7 +16,10 @@
     </p>
   <% end %>
 
-  <p>
-    <%= form.submit t('nav_buttons.next') %>
-  </p>
+  
+  <p><%= form.submit t('nav_buttons.next') %></p>
 <% end %>
+
+<p>
+  <%= button_to t('.gist_btn'), gists_path(id: @user_answer.id), method: :post, class: "btn btn-outline-primary mt-2" %>
+</p>
