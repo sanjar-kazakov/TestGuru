@@ -17,12 +17,18 @@ document.addEventListener('turbolinks:load', function() {
 
     if (passwordConfirmation.value === '') {
       icon.textContent = '';
-    } else if (password.value === passwordConfirmation.value) {
+      icon.classList.remove('success_icon', 'fail_icon');
+      return;
+    }
+
+    if (password.value === passwordConfirmation.value) {
       icon.textContent = '✓';
-      icon.style.color = 'green';
+      icon.classList.remove('fail_icon');
+      icon.classList.add('success_icon');
     } else {
       icon.textContent = '✗';
-      icon.style.color = 'red';
+      icon.classList.remove('success_icon');
+      icon.classList.add('fail_icon');
     }
   }
 });
