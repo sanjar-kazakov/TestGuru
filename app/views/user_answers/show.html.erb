@@ -1,8 +1,12 @@
 <h2> <%= t('.header', title: @user_answer.test.title) %></h2>
 
-<p> <%= t('.question') %>:
-  <%= @user_answer.current_question_number %> / <%= @user_answer.test.questions.count %>
-</p>
+<div> Test progress: </div>
+<p id="test-progress"></p>
+
+<div> <%= t('.question') %>: </div>
+
+<%= content_tag :p, '', class: 'question-number', data: { progress_bar: @user_answer.current_question_number } %>
+<%= content_tag :p, '', class: 'questions-count', data: { progress_bar: @user_answer.test.questions.count } %>
 
 <p>
   <b><%= @user_answer.current_question.body %></b>

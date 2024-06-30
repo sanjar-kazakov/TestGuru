@@ -6,12 +6,12 @@
       <%= render 'shared/errors', resource: @test %>
       <div class="form-group">
 
-        <p class="col-md-4">
+        <p class="col-md-6">
           <%= form.label :test_title %><br>
           <%= form.text_field :title, class: 'form-control' %>
         </p>
 
-        <p class="col-md-4">
+        <p class="col-md-2">
           <%= form.label :test_level %><br>
           <%= form.number_field :level, class: 'form-control' %>
         </p>
@@ -21,7 +21,6 @@
           <%= form.collection_select :category_id, Category.all, :id, :title, 
           { prompt: t('helpers.select.prompt') }, class: 'form-control' %>
         </p>
-
 
         <p> <%= form.submit class: "btn btn-outline-primary mt-3" %> </p>
       </div>

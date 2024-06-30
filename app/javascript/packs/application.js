@@ -9,11 +9,19 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "../utilities/sorting"
 import "../utilities/pass_confirmation"
+import "../utilities/form_inline"
+import "../utilities/progress_bar"
+
+// Import jQuery and assign it to the global window object
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+
+// Import Bootstrap and Popper.js
+import 'bootstrap';
+import 'popper.js';
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
-//= require_tree .
+
+// Your custom JavaScript files
