@@ -11,7 +11,6 @@ class GistQuestionService
   end
 
   def success?
-    byebug
     @client.response_status
   end
 
