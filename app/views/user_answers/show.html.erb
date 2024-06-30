@@ -16,10 +16,9 @@
     </p>
   <% end %>
 
-  
+<p>
+  <%= link_to t('.gist_btn'), gists_path(id: @user_answer.id), method: :post, class: "btn btn-outline-primary btn-sm" %>
+</p>
+
   <p><%= form.submit t('nav_buttons.next') %></p>
 <% end %>
-
-<p>
-  <%= button_to t('.gist_btn'), gists_path(id: @user_answer.id), method: :post, class: "btn btn-outline-primary mt-2" %>
-</p>
