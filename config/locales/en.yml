@@ -74,9 +74,12 @@ en:
         difficult: "Difficult"
       show:
         new_question: "New question"
+        edit_test: "Edit test"
         test: "Test"
         level: "Level"
         questions: "Test question(s)"
+      form_inline:
+        submit: "OK"
     questions:
       show:
         test: "Test"

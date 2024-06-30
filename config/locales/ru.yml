@@ -76,9 +76,12 @@ ru:
         difficult: "Сложный"
       show:
         new_question: "Создать вопрос"
+        edit_test: "Изменить тест"
         test: "Тест"
         level: "Уровень"
         questions: "Вопросы к тесту"
+      form_inline:
+        submit: "ОК"
     questions:
       show:
         test: "Тест"
@@ -133,3 +136,6 @@ ru:
     gist_question_service:
       description: "Вопрос про %{test_title} из TestGuru."
       file: "вопрос_тест_гуру"
+  js:
+    edit: "Изменить"
+    cancel: "Отменить"
