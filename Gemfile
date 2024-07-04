@@ -45,13 +45,13 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 5.3.3'
 gem 'octicons_helper'
 
+gem 'dotenv', groups: [:development, :test]
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   gem 'pry'
-
-  gem 'dotenv'
 end
 
 group :development do
