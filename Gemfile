@@ -51,7 +51,7 @@ group :development, :test do
 
   gem 'pry'
 
-  # gem 'dotenv'
+  gem 'dotenv'
 end
 
 group :development do
