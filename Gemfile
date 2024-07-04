@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # Networking
 gem 'faraday'
+# gem 'faraday-retry'
+# gem 'faraday-multipart'
 gem "octokit"
 
 # Auth
@@ -49,7 +51,7 @@ group :development, :test do
 
   gem 'pry'
 
-  gem 'dotenv'
+  # gem 'dotenv'
 end
 
 group :development do
