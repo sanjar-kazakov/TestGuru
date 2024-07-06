@@ -13,5 +13,8 @@ bundle exec rake assets:clean
 # Run database migrations
 bundle exec rake db:migrate
 
+# Clean the database
+bundle exec rake db:drop db:create
+
 # Seed the database with data from seeds.rb
 bundle exec rake db:seed
