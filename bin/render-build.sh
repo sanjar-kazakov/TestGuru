@@ -13,8 +13,5 @@ bundle exec rake assets:clean
 # Run database migrations
 bundle exec rake db:migrate
 
-# Clean the database
-bundle exec rake db:drop db:create
-
-# Seed the database with data from seeds.rb
-bundle exec rake db:seed
+# Clear and seed the database
+DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rake db:reset db:seed
