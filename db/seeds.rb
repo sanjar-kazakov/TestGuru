@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create!([
-  {first_name: "Sanjar 4", email: "sanjar.kazakov.test+4@gmail.com", password: "test1234", last_name: "Last"},
-  {first_name: "Sanjar 8", email: "sanjar.kazakov.test+8@gmail.com", password: "test1234", last_name: "Last"},
-  {first_name: "Admin 1", email: "admin@gmail.com", password: "test1234", type: "Admin", last_name: "Last"},
-  {first_name: "Admin 2", email: "admin2@gmail.com", password: "test1234", type: "Admin", last_name: "Last"},
-  {first_name: "Alex", email: "alex@outlook.com", password: "test1234", last_name: "Last"}
+  {first_name: "Sanjar 4", email: "sanjar.kazakov.test+4@gmail.com", password: "test1234", last_name: "Last", confirmed_at: Time.now},
+  {first_name: "Sanjar 8", email: "sanjar.kazakov.test+8@gmail.com", password: "test1234", last_name: "Last", confirmed_at: Time.now},
+  {first_name: "Admin 1", email: "admin@gmail.com", password: "test1234", type: "Admin", last_name: "Last", confirmed_at: Time.now},
+  {first_name: "Admin 2", email: "admin2@gmail.com", password: "test1234", type: "Admin", last_name: "Last", confirmed_at: Time.now},
+  {first_name: "Alex", email: "alex@outlook.com", password: "test1234", last_name: "Last", confirmed_at: Time.now}
 ])
 
 categories = Category.create!([
