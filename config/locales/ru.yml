@@ -12,6 +12,8 @@ ru:
       answer:
         create: "Создать ответ"
         update: "Обновить ответ"
+      contact_form:
+        create: "Отправить"
     select:
       prompt: "Выбрать"
     label:
@@ -48,6 +50,13 @@ ru:
       difficult: "Сложный"
     test:
       start: "Начать"
+  contact_forms:
+    new:
+      header: "Свяжитесь с нами"
+      name: "Имя"
+      phone_number: "Номер телефона"
+    create: 
+      success: "Письмо успешно отправлено!"
 
   admin:
     nav:
