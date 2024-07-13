@@ -12,6 +12,8 @@ en:
       answer:
         create: "Create answer"
         update: "Update answer"
+      contact_form:
+        create: "Send"
     select:
       prompt: "Select"
     label:
@@ -46,6 +48,13 @@ en:
       difficult: "Difficult"
     test:
       start: "Start"
+  contact_forms:
+    new:
+      header: "Get In Touch"
+      name: "Name"
+      phone_number: "Phone number"
+    create: 
+      success: "Message is successfully sent!"
 
   admin:
     nav:
