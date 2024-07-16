@@ -1,12 +1,12 @@
 class Admin::TestsController < Admin::BaseController
 
-  before_action :set_test, only: %i[index update_inline]
+  before_action :set_test, only: %i[update_inline]
   before_action :find_test, only: %i[show edit update destroy start update_inline]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @tests = Test.all
+    @tests = Test.kept
   end
 
   def new
@@ -30,12 +30,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def destroy
-    @test.user_answers.destroy_all
-    @test.questions.each do |question|
-      question.answers.destroy_all
-    end
-    @test.questions.destroy_all
-    @test.destroy
+    @test.soft_delete
     redirect_to admin_tests_path, notice: 'Test was successfully destroyed.'
   end
 

@@ -4,6 +4,5 @@ class AddIndex < ActiveRecord::Migration[6.1]
     add_index :categories, :title
     add_index :user_answers, :correct_questions
     add_index :users, :first_name
-    add_index :users, :last_name
   end
 end

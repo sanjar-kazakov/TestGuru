@@ -9,13 +9,19 @@ class UserAnswersController < ApplicationController
   def result
   end
 
-  def update
-    @user_answer.accept!(params[:answer_ids])
 
-    if @user_answer.completed?
-      TestsMailer.completed_test(@user_answer).deliver_now
-      redirect_to result_user_answer_path(@user_answer)
+  def update
+    if params[:answer_ids].present?
+      @user_answer.accept!(params[:answer_ids])
+
+      if @user_answer.completed?
+        TestsMailer.completed_test(@user_answer).deliver_now
+        redirect_to result_user_answer_path(@user_answer)
+      else
+        render :show
+      end
     else
+      flash.now[:alert] = t('.failure')
       render :show
     end
   end

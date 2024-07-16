@@ -5,11 +5,7 @@ class CreateContactForms < ActiveRecord::Migration[6.1]
       t.string :phone_number
       t.text :body
 
-
       t.timestamps
     end
-
-
-    add_index :contact_forms, :phone_number
   end
 end
