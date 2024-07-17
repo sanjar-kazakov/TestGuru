@@ -1,5 +1,7 @@
 class AddIndexToAnswers < ActiveRecord::Migration[6.1]
   def change
-    add_index :answers, :correct
+    unless index_exists?(:answers, :correct)
+      add_index :answers, :correct
+    end
   end
 end
