@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :gists
   has_many :tests, through: :user_answers
   has_many :author_tests, foreign_key: "author_id", class_name: "Test"
+  has_many :contact_forms
 
   # VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

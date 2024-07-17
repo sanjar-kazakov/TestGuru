@@ -16,9 +16,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :contact_forms, only: %i[new create]
+
   namespace :admin do
     resources :tests do
       patch :update_inline, on: :member
+      patch :publish, on: :member
 
       resources :questions do
         resources :answers

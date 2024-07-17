@@ -12,6 +12,8 @@ en:
       answer:
         create: "Create answer"
         update: "Update answer"
+      contact_form:
+        create: "Send"
     select:
       prompt: "Select"
     label:
@@ -46,14 +48,26 @@ en:
       difficult: "Difficult"
     test:
       start: "Start"
+  contact_forms:
+    new:
+      header: "Get In Touch"
+      name: "Name"
+      phone_number: "Phone number"
+    create: 
+      success: "Message is successfully sent!"
 
   admin:
     nav:
       admin_nav_panel: "TestGuru Admin Panel"
       welcome: "Welcome"  
     tests:
+      publish:
+        published: "Test was successfully published."
+        unpublished: "Test was successfully unpublished."
       create:
         success: "Test is succeccfully created."
+      destroy:
+        success: 'Test was successfully destroyed.'
       index:
         header: "Tricky Tests"
         new_test: "New test"
@@ -107,6 +121,7 @@ en:
       create: "Create '%{header}' test question"
 
   user_answers:
+    failure: "Please select an answer."
     result:
       header: "The test %{title} is successfully completed!"
       success: "Success! Your score is %{score}%!"

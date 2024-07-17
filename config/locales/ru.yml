@@ -12,6 +12,8 @@ ru:
       answer:
         create: "Создать ответ"
         update: "Обновить ответ"
+      contact_form:
+        create: "Отправить"
     select:
       prompt: "Выбрать"
     label:
@@ -48,14 +50,26 @@ ru:
       difficult: "Сложный"
     test:
       start: "Начать"
+  contact_forms:
+    new:
+      header: "Свяжитесь с нами"
+      name: "Имя"
+      phone_number: "Номер телефона"
+    create: 
+      success: "Письмо успешно отправлено!"
 
   admin:
     nav:
       admin_nav_panel: "Административная панель TestGuru"
       welcome: "Добро пожаловать"
     tests:
+      publish:
+        published: "Тест опубликован."
+        unpublished: "Тест убран из опубликованных."
       create:
         success: "Тест успешно создан."
+      destroy:
+        success: 'Тест успешно удален.'
       index:
         header: "Доступные Тесты"
         new_test: "Создать тест"
@@ -109,6 +123,7 @@ ru:
       create: "Создать вопрос к тесту '%{header}'"
 
   user_answers:
+    failure: 'Пожалуйста, выберите ответ.'
     result:
       header: "Тест %{title} успешно завршен!"
       success: "Тест пройден успешно. Вы ответили на %{score}%!"

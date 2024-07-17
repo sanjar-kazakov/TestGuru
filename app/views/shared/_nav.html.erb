@@ -8,6 +8,10 @@
       <button type="button" class="btn btn-outline-secondary btn-sm">
         <%= button_to t('nav_buttons.logout'), destroy_user_session_path, method: :delete, data: { turbolinks: false } %>
       </button>
+
+      <button type="button" class="btn btn-outline-secondary btn-sm">
+        <%= link_to "Contact Us", new_contact_form_path %>
+      </button>
       
     <% else %>
       <%= link_to "Sign in", new_session_path(resource_name) %> |

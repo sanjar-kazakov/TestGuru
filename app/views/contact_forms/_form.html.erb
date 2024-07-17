@@ -1,0 +1,29 @@
+<div class="card card-border-primary col-md-4">
+  <div class="card-body">
+    <%= form_with(model: @contact_form, local: true) do |f| %>
+      <%= render 'shared/errors', resource: @contact_form %>
+
+      <div class="form-floating mb-3">
+        <%= f.text_field :first_name, class: 'form-control', value: current_user.first_name, disabled: true, readonly: true %>
+        <label><%= t('contact_forms.new.name') %></label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <%= f.text_field :email, class: 'form-control', value: current_user.email, disabled: true, readonly: true %>
+        <label>Email</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Mobile phone' %>
+        <label><%= t('contact_forms.new.phone_number') %></label>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :body, class: 'form-label' %>
+        <%= f.text_area :body, class: 'form-control', rows: 4 %>
+      </div>
+
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

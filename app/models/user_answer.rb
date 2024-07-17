@@ -63,6 +63,4 @@ class UserAnswer < ApplicationRecord
     current_question.answers.correct(true)
   end
 
-
-
 end

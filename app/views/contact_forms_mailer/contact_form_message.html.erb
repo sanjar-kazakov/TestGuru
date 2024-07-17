@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333333;
+      margin: 0;
+      padding: 0;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+    }
+    h2 {
+      color: #0066cc;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <h2>New Contact Form Submission</h2>
+    <p><strong>From:</strong> <%= @user.email %></p>
+    <p><strong>Phone number:</strong> <%= @phone_number %></p>
+    <p><strong>Message:</strong></p>
+    <p><%= @message.gsub("\n", "<br>").html_safe %></p>
+  </div>
+</body>
+</html>
