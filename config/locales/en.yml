@@ -61,8 +61,13 @@ en:
       admin_nav_panel: "TestGuru Admin Panel"
       welcome: "Welcome"  
     tests:
+      publish:
+        published: "Test was successfully published."
+        unpublished: "Test was successfully unpublished."
       create:
         success: "Test is succeccfully created."
+      destroy:
+        success: 'Test was successfully destroyed.'
       index:
         header: "Tricky Tests"
         new_test: "New test"

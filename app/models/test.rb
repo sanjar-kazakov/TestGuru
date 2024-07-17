@@ -18,8 +18,6 @@ class Test < ApplicationRecord
     .where(categories: {title: category_name})
   }
 
-  scope :with_questions, -> { joins(:questions).distinct }
-
   validates :level, numericality: { only_integer: true,
                                     greater_than_or_equal_to: 0 }
   validates :title, presence: true, uniqueness: { scope: :level }
@@ -32,8 +30,21 @@ class Test < ApplicationRecord
     update(deleted_at: Time.current)
   end
 
-  # def self.with_questions
-  #   joins(:questions).distinct
-  # end
+  def self.published_tests
+    where(published: true)
+  end
+
+  def self.unpublished_tests
+    where(published: false)
+  end
+
+
+  def publish_test
+    update(published: !published)
+  end
+
+  def published?
+    self.published
+  end
 
 end

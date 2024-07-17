@@ -63,8 +63,13 @@ ru:
       admin_nav_panel: "Административная панель TestGuru"
       welcome: "Добро пожаловать"
     tests:
+      publish:
+        published: "Тест опубликован."
+        unpublished: "Тест убран из опубликованных."
       create:
         success: "Тест успешно создан."
+      destroy:
+        success: 'Тест успешно удален.'
       index:
         header: "Доступные Тесты"
         new_test: "Создать тест"

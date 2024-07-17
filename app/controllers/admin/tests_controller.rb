@@ -1,7 +1,7 @@
 class Admin::TestsController < Admin::BaseController
 
   before_action :set_test, only: %i[update_inline]
-  before_action :find_test, only: %i[show edit update destroy start update_inline]
+  before_action :find_test, only: %i[show edit update destroy start update_inline publish]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -31,7 +31,7 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.soft_delete
-    redirect_to admin_tests_path, notice: 'Test was successfully destroyed.'
+    redirect_to admin_tests_path, notice: t('.success')
   end
 
   def update
@@ -39,6 +39,16 @@ class Admin::TestsController < Admin::BaseController
       redirect_to admin_test_path(@test)
     else
       render :edit
+    end
+  end
+
+  def publish
+    message = @test.published? ? t('.unpublished') : t('.published')
+    if @test.publish_test
+
+      redirect_to admin_tests_path, notice: message
+    else
+      render :index
     end
   end
 
