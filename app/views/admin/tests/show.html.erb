@@ -21,7 +21,12 @@
     <% @test.questions.each_with_index do |question, i| %>
       <div class="mb-4">
         <h6 class="card-title"><%= "#{i + 1}. #{question.body}" %></h6>
+        <%= link_to "Show", admin_test_question_path(@test, question), class: "btn btn-outline-primary btn-sm" %>
         <%= link_to t('nav_buttons.edit'), edit_admin_test_question_path(@test, question), class: "btn btn-outline-primary btn-sm" %>
+        <%= link_to "Add answer", new_admin_test_question_answer_path(@test, question), class: "btn btn-outline-primary btn-sm" %>
+        
+        
+
       </div>
     <% end %>
   </div>

@@ -5,19 +5,43 @@
   <%= link_to t('.user_gists'), admin_gists_path, class: "btn btn-outline-primary btn-sm" %>
 </p>
 <%= render 'shared/errors', resource: @test %>
-<div>
-  <table class="table table-hover table-bordered">
-    <tr style="text-align: center;">
-      <th class="sort-by-title pointer">
-        <%= t('.title') %>
-        <%= octicon 'arrow-up', class: 'text-success hide' %>
-        <%= octicon 'arrow-down', class: 'text-success hide' %>
-      </th>
-      <th><%= t('.level') %></th>
-      <th><%= t('.questions') %></th>
-      <th colspan="3"><%= t('.actions') %></th>
-    </tr>
 
-    <%= render @tests %>
-  </table>
+<div class="mt-5">
+  <h5><%= "Published tests" %></h5>
+    <div>
+      <table class="table table-hover table-bordered">
+        <tr style="text-align: center;">
+          <th class="sort-by-title pointer">
+            <%= t('.title') %>
+            <%= octicon 'arrow-up', class: 'text-success hide' %>
+            <%= octicon 'arrow-down', class: 'text-success hide' %>
+          </th>
+          <th><%= t('.level') %></th>
+          <th><%= t('.questions') %></th>
+          <th colspan="4"><%= t('.actions') %></th>
+        </tr>
+
+        <%= render @tests.published_tests %>
+      </table>
+    </div>
+</div>
+
+<div class="mt-5">
+  <h5><%= "Unpublished tests" %></h5>
+    <div>
+      <table class="table table-hover table-bordered">
+        <tr style="text-align: center;">
+          <th class="sort-by-title pointer">
+            <%= t('.title') %>
+            <%= octicon 'arrow-up', class: 'text-success hide' %>
+            <%= octicon 'arrow-down', class: 'text-success hide' %>
+          </th>
+          <th><%= t('.level') %></th>
+          <th><%= t('.questions') %></th>
+          <th colspan="4"><%= t('.actions') %></th>
+        </tr>
+
+        <%= render @tests.unpublished_tests %>
+      </table>
+    </div>
 </div>
