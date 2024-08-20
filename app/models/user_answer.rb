@@ -7,6 +7,7 @@ class UserAnswer < ApplicationRecord
   before_validation :before_validation_set_question, on: %i[create update]
 
   SUCCESS_PERCENTAGE = 85
+  PERFECT_SCORE = 100
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)

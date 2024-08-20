@@ -1,0 +1,19 @@
+<h2>All Badges</h2>
+
+<table class="table table-hover table-bordered ">
+  <tr style="text-align: center;">
+    <th><%= t('.title') %></th>
+    <th><%= t('.level') %></th>
+    <th><%= t('.questions') %></th>
+    <th><%= t('.actions') %></th>
+  </tr>
+
+  <%= render @badges %>
+</table>
+
+<div class="mt-2">
+  <%= link_to "New badge", new_admin_badge_path, class: "btn btn-primary" %>
+</div>
+<div class="mt-2">
+  <%= link_to t('nav_buttons.back'), (request.referer || admin_tests_path), class: "btn btn-primary" %>
+</div>
