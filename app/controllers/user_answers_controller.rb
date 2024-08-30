@@ -14,12 +14,10 @@ class UserAnswersController < ApplicationController
       @user_answer.accept!(params[:answer_ids])
 
       if @user_answer.completed?
-        service = BadgeService.new(@user_answer)
-          if service.method_name?
-            service.call
-          end
+        @user_answer.success
+        new_badges = BadgeService.new(@user_answer).call if @user_answer.success?
         TestsMailer.completed_test(@user_answer).deliver_now
-        redirect_to result_user_answer_path(@user_answer)
+        redirect_to result_user_answer_path(@user_answer, badges: new_badges)
       else
         render :show
       end
