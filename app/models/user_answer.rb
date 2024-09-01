@@ -4,6 +4,8 @@ class UserAnswer < ApplicationRecord
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true
 
+  scope :successful, -> { where(success: true) }
+
   before_validation :before_validation_set_question, on: %i[create update]
 
   SUCCESS_PERCENTAGE = 85
@@ -20,7 +22,7 @@ class UserAnswer < ApplicationRecord
     current_question.nil?
   end
 
-  def passage_percentage
+  def result
       correct_questions / test.questions.count.to_f * 100
   end
 
@@ -29,10 +31,10 @@ class UserAnswer < ApplicationRecord
   end
 
   def success?
-    passage_percentage >= SUCCESS_PERCENTAGE
+    result >= SUCCESS_PERCENTAGE
   end
 
-  def success
+  def update_success_status
     update!(success: success?)
   end
 

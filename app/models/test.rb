@@ -9,9 +9,11 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: (0..1)) }
   scope :medium, -> { where(level: (2..4)) }
   scope :difficult, -> { where(level: (5..Float::INFINITY)) }
+  scope :successful, -> { where(success: true) }
 
   scope :kept, -> { where(deleted_at: nil) }
   scope :deleted, -> { where.not(deleted_at: nil) }
+  scope :published, -> { where(published: true) }
 
   scope :sort_by_category_name, -> (category_name) {
     joins(:category)

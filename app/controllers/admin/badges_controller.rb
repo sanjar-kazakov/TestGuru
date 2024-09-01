@@ -55,7 +55,7 @@ class Admin::BadgesController < Admin::BaseController
   private
 
   def badge_params
-    params.require(:badge).permit(:title, :description, :path)
+    params.require(:badge).permit(:title, :description, :rule_value, :path)
   end
 
   def find_badge

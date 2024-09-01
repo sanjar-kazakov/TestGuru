@@ -12,7 +12,7 @@ class BadgeService
   def call
     Badge.find_each do |badge|
       call_method = "#{badge.title.parameterize.underscore}?"
-      if respond_to?(call_method) && self.send(call_method)
+      if respond_to?(call_method) && send(call_method, badge.rule_value)
         @user.badges.push(badge)
         @new_badges << badge
       end
@@ -20,31 +20,25 @@ class BadgeService
     @new_badges
   end
 
-  private
-
-  def category_pass?
-    category_test_ids = Test.sort_by_category_name(@test.category.title).kept.deleted.pluck(:id).uniq
-    user_test_ids = @user.tests.where(id: category_test_ids, success: true).pluck(:id).uniq
-    category_test_ids == user_test_ids
+  def category_pass?(category_name)
+    category_test_ids = Test.sort_by_category_name(category_name).published.kept.pluck(:id).uniq
+    user_test_ids = @user.user_answers.successful.where(test_id: category_test_ids).pluck(:test_id).uniq
+    category_test_ids.sort == user_test_ids.sort
   end
 
-  def perfect_score?
-    passage_percentage == PERFECT_SCORE
+  def perfect_score?(_rule_value = nil)
+    @user_answer.result == PERFECT_SCORE
   end
 
-  def level_pass?
-    test_level_ids = Test.where(level: @test.level, published: true).kept.pluck(:id).uniq
-    user_test_ids = @user.user_answers.where(test_id: test_level_ids, success: true).pluck(:test_id).uniq
+  def level_pass?(level)
+    test_level_ids = Test.where(level: level).published.kept.pluck(:id).uniq
+    user_test_ids = @user.user_answers.successful.where(test_id: test_level_ids).pluck(:test_id).uniq
     test_level_ids.sort == user_test_ids.sort
   end
 
-  def first_try_success?
+  def first_try_success?(_rule_value = nil)
     previous_attempts = @user.user_answers.where(test: @test).count
     previous_attempts == 1 && @user_answer.success?
-  end
-
-  def passage_percentage
-    ( @user_answer.correct_questions / @user_answer.test.questions.count.to_f ) * 100
   end
 
 end

@@ -2,11 +2,11 @@
 
 <% if @user_answer.success? %>
   <div class="alert alert-success" role="alert">
-    <%= t('.success', score: @user_answer.passage_percentage) %>
+    <%= t('.success', score: @user_answer.result) %>
   </div>
 <% else %>
   <div class="alert alert-danger" role="alert">
-    <%= t('.fail', score: @user_answer.passage_percentage) %>
+    <%= t('.fail', score: @user_answer.result) %>
   </div>
 <% end %>
 

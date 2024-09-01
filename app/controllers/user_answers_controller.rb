@@ -14,7 +14,7 @@ class UserAnswersController < ApplicationController
       @user_answer.accept!(params[:answer_ids])
 
       if @user_answer.completed?
-        @user_answer.success
+        @user_answer.update_success_status
         new_badges = BadgeService.new(@user_answer).call if @user_answer.success?
         TestsMailer.completed_test(@user_answer).deliver_now
         redirect_to result_user_answer_path(@user_answer, badges: new_badges)

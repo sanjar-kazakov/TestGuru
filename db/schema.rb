@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2024_08_27_172318) do
   create_table "badges", force: :cascade do |t|
     t.string "title", null: false
     t.string "description", null: false
+    t.string "rule_value", null: false
     t.string "path", null: false
     t.datetime "deleted_at"
     t.bigint "author_id", null: false
