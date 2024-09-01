@@ -35,7 +35,7 @@ class UserAnswer < ApplicationRecord
   end
 
   def update_success_status
-    update!(success: success?)
+    update(success: success?)
   end
 
   private
