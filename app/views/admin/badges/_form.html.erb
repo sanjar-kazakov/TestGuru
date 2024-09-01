@@ -1,0 +1,35 @@
+<div class="card card border-primary col-md-6">
+  <div class="card-body">
+    <%= form_with model: [:admin, @badge] do |form| %>
+      <%= render 'shared/errors', resource: @badge %>
+      <div class="form-group">
+
+        <p class="col-md-6">
+          <%= form.label :title %><br>
+          <%= form.text_field :title, class: 'form-control' %>
+        </p>
+
+        <p class="col-md-6">
+          <%= form.label :description %><br>
+          <%= form.text_field :description, class: 'form-control' %>
+        </p>
+
+        <p class="col-md-6">
+          <%= form.label :rule_value %><br>
+          <%= form.text_field :rule_value, class: 'form-control' %>
+        </p>
+
+        <div class="form-group">
+          <%= form.label :path, "Upload Image" %><br>
+          <%= form.file_field :image_file %>
+        </div>
+
+        <p> <%= form.submit class: "btn btn-outline-primary mt-3" %> </p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="mt-2">
+  <%= link_to t('nav_buttons.back'), request.referrer, class: "btn btn-primary" %>
+</div>

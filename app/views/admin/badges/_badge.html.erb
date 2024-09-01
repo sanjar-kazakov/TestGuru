@@ -1,0 +1,10 @@
+<tr style="text-align: center;">
+  <td><%= badge.title %></td>
+  <td><%= badge.description %></td>
+  <td><%= badge.rule_value %></td>
+  <td><%= badge.path %></td>
+  <td>
+    <%= link_to 'Edit', edit_admin_badge_path(badge), class: 'btn btn-warning' %>
+    <%= link_to 'Delete', admin_badge_path(badge), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  </td>
+</tr>

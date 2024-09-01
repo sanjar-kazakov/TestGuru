@@ -16,8 +16,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :contact_forms, only: %i[new create]
-
   namespace :admin do
     resources :tests do
       patch :update_inline, on: :member
@@ -28,8 +26,11 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: %i[index]
+    resources :badges
   end
 
+  resources :contact_forms, only: %i[new create]
   resources :gists, only: %i[create]
+  resources :badges, only: %i[index]
 
 end

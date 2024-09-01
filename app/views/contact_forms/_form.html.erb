@@ -27,3 +27,7 @@
     <% end %>
   </div>
 </div>
+
+<div class="mt-2">
+  <%= link_to t('nav_buttons.back'), (request.referer || tests_path), class: "btn btn-primary" %>
+</div>
