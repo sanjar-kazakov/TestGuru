@@ -9,10 +9,13 @@ class User < ApplicationRecord
         :confirmable
 
   has_many :user_answers
-  has_many :gists
   has_many :tests, through: :user_answers
+  has_many :gists
   has_many :author_tests, foreign_key: "author_id", class_name: "Test"
   has_many :contact_forms
+  has_many :author_badges, foreign_key: "author_id", class_name: "Badge"
+  has_many :user_badges
+  has_many :badges, through: :user_badges
 
   # VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

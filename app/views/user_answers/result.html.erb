@@ -1,9 +1,31 @@
-<h2> <%= t('.header', title: @user_answer.test.title) %> </h2>
+<h2><%= t('.header', title: @user_answer.test.title) %></h2>
 
 <% if @user_answer.success? %>
-  <div class="alert alert-success" role="alert"><%= t('.success', score: "#{@user_answer.passage_percentage}") %> </div>
-  <% else %>
-  <div class="alert alert-danger" role="alert"> <%= t('.fail', score: "#{@user_answer.passage_percentage}") %> </div>
+  <div class="alert alert-success" role="alert">
+    <%= t('.success', score: @user_answer.result) %>
+  </div>
+<% else %>
+  <div class="alert alert-danger" role="alert">
+    <%= t('.fail', score: @user_answer.result) %>
+  </div>
 <% end %>
 
-<%= link_to t('nav_buttons.back'), tests_path, class: 'btn btn-primary' %>
+<% if params[:badges].present? %>
+  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 50vh;">
+    <div class="alert alert-success" role="alert">
+      <%= "Congrats! You earned the following badges:" %>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center;">
+      <% params[:badges].each do |badge_id| %>
+        <% badge = Badge.find(badge_id) %>
+        <div style="text-align: center;">
+          <%= image_tag badge.path, width: "200", height: "200", alt: badge.title %>
+          <p><%= badge.title %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to t('nav_buttons.back'), tests_path, class: 'btn btn-primary mt-3' %>
