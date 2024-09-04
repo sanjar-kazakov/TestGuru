@@ -22,6 +22,11 @@
           { prompt: t('helpers.select.prompt') }, class: 'form-control' %>
         </p>
 
+        <p class="col-md-2">
+          <%= form.label :test_timer, "Time Limit (minutes)" %><br>
+          <%= form.number_field :timer, class: 'form-control', min: 0 %>
+        </p>
+
         <p> <%= form.submit class: "btn btn-outline-primary mt-3" %> </p>
       </div>
     <% end %>

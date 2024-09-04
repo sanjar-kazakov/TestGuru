@@ -3,6 +3,10 @@
 <div> Test progress: </div>
 <p id="test-progress"></p>
 
+<div id="timer">
+  <p><%= t('time_remaining') %>: <span id="time-left" data-timeout-url="<%= result_user_answer_path(@user_answer) %>"><%= @time_left_in_seconds %></span></p>
+</div>
+
 <div> <%= t('.question') %>: </div>
 
 <%= content_tag :p, '', class: 'question-number', data: { progress_bar: @user_answer.current_question_number } %>
