@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const timeLeftElement = document.getElementById('time-left');
-    const timeoutUrl = timeLeftElement.getAttribute('data-timeout-url');
     let timeLeft = parseInt(timeLeftElement.textContent, 10);
 
     function formatTime(seconds) {
@@ -16,7 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
-                window.location.href = timeoutUrl;
+
+                const form = document.querySelector('form');
+                if (form) {
+                    form.submit();
+                }
             }
         }, 1000);
     }
