@@ -121,7 +121,6 @@ en:
       create: "Create '%{header}' test question"
 
   user_answers:
-    failure: "Please select an answer."
     result:
       header: "The test %{title} is successfully completed!"
       success: "Success! Your score is %{score}%!"
