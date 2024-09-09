@@ -123,7 +123,6 @@ ru:
       create: "Создать вопрос к тесту '%{header}'"
 
   user_answers:
-    failure: 'Пожалуйста, выберите ответ.'
     result:
       header: "Тест %{title} успешно завршен!"
       success: "Тест пройден успешно. Вы ответили на %{score}%!"
