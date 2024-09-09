@@ -11,6 +11,7 @@ import "../utilities/sorting"
 import "../utilities/pass_confirmation"
 import "../utilities/form_inline"
 import "../utilities/progress_bar"
+import "../utilities/test_timer"
 
 // Import jQuery and assign it to the global window object
 import $ from 'jquery';

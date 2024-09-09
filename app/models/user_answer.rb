@@ -38,6 +38,19 @@ class UserAnswer < ApplicationRecord
     update(success: success?)
   end
 
+  def calculate_time_left
+    return 0 unless test.timer.present? && test.timer > 0
+
+    elapsed_time = Time.current - created_at
+    remaining_time = (test.timer * 60) - elapsed_time
+    remaining_time > 0 ? remaining_time.to_i : 0
+  end
+
+  def expired?
+    return false unless test.timer.present? && test.timer > 0
+    Time.current > (created_at + test.timer.minutes)
+  end
+
   private
 
   def before_validation_set_question

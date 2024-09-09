@@ -36,7 +36,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to admin_test_path(@test)
+      redirect_to admin_test_path(@test), notice: "Test was successfully updated."
     else
       render :edit
     end
@@ -71,7 +71,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id)
+    params.require(:test).permit(:title, :level, :timer, :category_id)
   end
 
   def rescue_with_question_not_found

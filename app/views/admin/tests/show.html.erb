@@ -8,6 +8,12 @@
   <%= test_level(@test) %>
 </p>
 
+
+<p>
+  <strong> <%= t('.timer') %>: </strong>
+  <%= @test.timer %> <span>(mins)</span>
+</p>
+
 <div class="mb-4">
     <%= link_to t('.edit_test'), edit_admin_test_path(@test), class: "btn btn-outline-primary btn-sm" %>
   <%= link_to t('.new_question'), new_admin_test_question_path(@test), class: "btn btn-outline-primary btn-sm" %>
